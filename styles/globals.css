@@ -279,9 +279,9 @@ h2 {
 }
 
 .message.assistant {
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   align-self: flex-start;
-  text-align: left; /* ← force left-aligned text */
+  text-align: left;
 }
 
 .message.user {
