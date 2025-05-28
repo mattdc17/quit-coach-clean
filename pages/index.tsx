@@ -73,10 +73,10 @@ export default function Home() {
 
   return (
     <LoginGate>
-      <div className="outer-wrapper" style={{ padding: "2rem 1rem" }}>
-        <div className="chat-container" style={{ width: "100%", maxWidth: "720px" }}>
+      <div className="outer-wrapper" style={{ padding: "1rem", paddingBottom: "5rem" }}>
+        <div className="chat-container" style={{ width: "100%", maxWidth: "720px", padding: "1.5rem 1rem" }}>
           <div className="logo-container">
-            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" />
+            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: 60, height: 60, marginBottom: "1rem" }} />
           </div>
 
           {!started && (
@@ -104,6 +104,7 @@ export default function Home() {
                     <div
                       key={i}
                       className={`message ${m.role === "user" ? "user" : "assistant"}`}
+                      style={{ borderRadius: 0, padding: "1rem", margin: 0, fontSize: "1rem" }}
                     >
                       {m.content.split("\n\n").map((para, j) => (
                         <p key={j}>{para}</p>
@@ -122,24 +123,24 @@ export default function Home() {
               </div>
             </div>
           )}
+        </div>
 
-          <div className="input-area" style={{ flexDirection: "column", gap: "0.5rem", marginTop: "1.5rem" }}>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type anything..."
-              style={{ width: "100%", padding: "0.75rem", fontSize: "1rem", borderRadius: "12px", border: "1px solid #ccc" }}
-            />
-            <button
-              onClick={() => sendMessage()}
-              disabled={loading}
-              style={{ backgroundColor: "#0670DB", color: "white", border: "none", padding: "0.75rem", borderRadius: "12px", fontSize: "1rem", cursor: "pointer", width: "100%" }}
-            >
-              {loading ? "..." : "Send"}
-            </button>
-          </div>
+        <div className="input-area" style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "0.5rem", backgroundColor: "#fff", borderTop: "1px solid #ddd", zIndex: 10, display: "flex", gap: "0.5rem" }}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type anything..."
+            style={{ flex: 1, padding: "0.75rem", fontSize: "1rem", borderRadius: "12px", border: "1px solid #ccc" }}
+          />
+          <button
+            onClick={() => sendMessage()}
+            disabled={loading}
+            style={{ backgroundColor: "#0670DB", color: "white", border: "none", padding: "0.75rem 1.25rem", borderRadius: "12px", fontSize: "1rem", cursor: "pointer" }}
+          >
+            {loading ? "..." : "Send"}
+          </button>
         </div>
       </div>
     </LoginGate>
