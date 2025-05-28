@@ -1,0 +1,302 @@
+/* Global Styles */
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+
+.outer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.centered {
+  max-width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.chat-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 2rem; /* Increase top/bottom padding */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-height: 90vh; /* prevents over-expansion */
+  overflow: hidden;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.prompt-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.prompt-button {
+  background-color: #f5f5f5;
+  color: #000000;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+}
+
+.prompt-button:hover {
+  background-color: #e0e0e0;
+}
+
+.fixed-chat-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.message-box {
+  width: 100%;
+  max-width: 720px;
+  background-color: #fefefe;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.message {
+  display: inline-block;
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  line-height: 1.5;
+  font-size: 1rem;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.input-area {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.input-area button {
+  background-color: #0670DB;
+  color: white;
+  border: none;
+  padding: 0 1.25rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.input-area button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.typing-indicator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  background-color: #e8e8e8;
+  width: fit-content;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.logo-access {
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.login-container {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  max-width: 400px;
+  margin: 4rem auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.login-form input {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.login-form button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 12px;
+  background-color: #0670DB;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.access-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.access-input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.access-button {
+  background-color: #0670DB; /* Bright blue */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.access-button:hover {
+  background-color: #045bb5; /* Slightly darker blue on hover */
+}
+
+.access-button:hover {
+  background-color: #e0e0e0;
+}
+
+.message.assistant {
+  background-color: #e8e8e8;
+  align-self: flex-start;
+  text-align: left; /* ← force left-aligned text */
+}
+
+.message.user {
+  background-color: #daf0ff;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left; /* ← this ensures <p> tags are also left-aligned */
+}
+
+.message p:last-child {
+  margin-bottom: 0;
+}
