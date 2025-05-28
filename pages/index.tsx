@@ -78,10 +78,10 @@ export default function Home() {
           <div className="logo-container">
             <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" />
           </div>
-          <h1>Quit Coach</h1>
+          {/*<h1>Quit Coach</h1>
           <p>
             For people quitting substances or healing afterward — quick, clear support to take back control of your life.
-          </p>
+          </p> */}
 
           {!started && (
             <div>
