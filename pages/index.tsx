@@ -76,7 +76,7 @@ export default function Home() {
       <div className="outer-wrapper" style={{ padding: "0", height: "100vh" }}>
         <div className="chat-container" style={{ width: "100%", height: "100vh", maxWidth: "100%", boxShadow: "none", padding: "0.75rem 1rem", display: "flex", flexDirection: "column" }}>
           <div className="logo-container" style={{ padding: "1rem 0 0.5rem 0" }}>
-            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: "48px", height: "48px" }} />
+            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: "40px", height: "40px" }} />
           </div>
 
           {!started && (
@@ -98,14 +98,23 @@ export default function Home() {
           )}
 
           {(messages.some((m) => m.role !== "system") || loading) && (
-            <div className="fixed-chat-wrapper" style={{ flex: 1, overflowY: "auto", marginBottom: "4rem" }}>
+            <div className="fixed-chat-wrapper" style={{ flex: 1, overflowY: "auto", marginBottom: "5.5em" }}>
               <div className="message-box" style={{ backgroundColor: "transparent", border: "none", padding: "0" }}>
                 {messages.map((m, i) =>
                   m.role !== "system" ? (
                     <div
                       key={i}
                       className={`message ${m.role === "user" ? "user" : "assistant"}`}
-                      style={{ borderRadius: "16px", padding: "0.75rem 1rem", margin: "0.25rem 0", fontSize: "0.9rem" }}
+                      style={{
+                        borderRadius: "18px",
+                        padding: "0.75rem 1rem",
+                        margin: "0.25rem 0",
+                        fontSize: "0.94rem",
+                        lineHeight: "1.6",
+                        backgroundColor: m.role === "user" ? "#daf0ff" : "#f5f5f5",
+                        alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                        maxWidth: "85%",
+                      }}
                     >
                       {m.content.split("\n\n").map((para, j) => (
                         <p key={j} style={{ margin: 0 }}>{para}</p>
