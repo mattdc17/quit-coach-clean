@@ -78,19 +78,22 @@ export default function Home() {
           <div className="logo-container">
             <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" />
           </div>
-          <h2>What's On Your Mind?</h2>
+
           {!started && (
-            <div className="prompt-buttons">
-              {starters.map((starter, i) => (
-                <button
-                  key={i}
-                  className="prompt-button"
-                  onClick={() => sendMessage(starter)}
-                >
-                  {starter}
-                </button>
-              ))}
-            </div>
+            <>
+              <h2>What's On Your Mind?</h2>
+              <div className="prompt-buttons">
+                {starters.map((starter, i) => (
+                  <button
+                    key={i}
+                    className="prompt-button"
+                    onClick={() => sendMessage(starter)}
+                  >
+                    {starter}
+                  </button>
+                ))}
+              </div>
+            </>
           )}
 
           {(messages.some((m) => m.role !== "system") || loading) && (
@@ -98,15 +101,14 @@ export default function Home() {
               <div className="message-box">
                 {messages.map((m, i) =>
                   m.role !== "system" ? (
-                  <div
-                    key={i}
-                    className={`message ${m.role === "user" ? "user" : "assistant"}`}
-                  >
-                    {m.content.split("\n\n").map((para, j) => (
-                      <p key={j}>{para}</p>
-                    ))}
-                  </div>
-
+                    <div
+                      key={i}
+                      className={`message ${m.role === "user" ? "user" : "assistant"}`}
+                    >
+                      {m.content.split("\n\n").map((para, j) => (
+                        <p key={j}>{para}</p>
+                      ))}
+                    </div>
                   ) : null
                 )}
                 {loading && (
