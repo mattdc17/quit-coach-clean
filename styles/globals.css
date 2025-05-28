@@ -11,8 +11,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   min-height: 100vh;
+  box-sizing: border-box;
+}
+.chat-container,
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 .centered {
