@@ -8,7 +8,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [starters, setStarters] = useState([]);
   const [started, setStarted] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const messagesEndRef = useRef(null);
 
   const conversationStarters = [
     "I’m ready to quit kratom — where do I start?",
@@ -73,15 +73,15 @@ export default function Home() {
 
   return (
     <LoginGate>
-      <div className="outer-wrapper">
-        <div className="chat-container">
+      <div className="outer-wrapper" style={{ padding: "2rem 1rem" }}>
+        <div className="chat-container" style={{ width: "100%", maxWidth: "720px" }}>
           <div className="logo-container">
             <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" />
           </div>
 
           {!started && (
             <>
-              <h2>What's On Your Mind?</h2>
+              <h2 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>What's On Your Mind?</h2>
               <div className="prompt-buttons">
                 {starters.map((starter, i) => (
                   <button
@@ -123,15 +123,20 @@ export default function Home() {
             </div>
           )}
 
-          <div className="input-area">
+          <div className="input-area" style={{ flexDirection: "column", gap: "0.5rem", marginTop: "1.5rem" }}>
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Type anything..."
+              style={{ width: "100%", padding: "0.75rem", fontSize: "1rem", borderRadius: "12px", border: "1px solid #ccc" }}
             />
-            <button onClick={() => sendMessage()} disabled={loading}>
+            <button
+              onClick={() => sendMessage()}
+              disabled={loading}
+              style={{ backgroundColor: "#0670DB", color: "white", border: "none", padding: "0.75rem", borderRadius: "12px", fontSize: "1rem", cursor: "pointer", width: "100%" }}
+            >
               {loading ? "..." : "Send"}
             </button>
           </div>
