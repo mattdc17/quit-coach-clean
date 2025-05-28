@@ -73,10 +73,10 @@ export default function Home() {
 
   return (
     <LoginGate>
-      <div className="outer-wrapper" style={{ padding: "1rem", height: "100vh" }}>
-        <div className="chat-container" style={{ width: "100%", maxWidth: "100%", boxShadow: "none", padding: "1.5rem 1rem" }}>
-          <div className="logo-container">
-            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: "64px", height: "64px" }} />
+      <div className="outer-wrapper" style={{ padding: "0", height: "100vh" }}>
+        <div className="chat-container" style={{ width: "100%", height: "100vh", maxWidth: "100%", boxShadow: "none", padding: "0.75rem 1rem", display: "flex", flexDirection: "column" }}>
+          <div className="logo-container" style={{ padding: "1rem 0 0.5rem 0" }}>
+            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: "48px", height: "48px" }} />
           </div>
 
           {!started && (
@@ -88,7 +88,7 @@ export default function Home() {
                     key={i}
                     className="prompt-button"
                     onClick={() => sendMessage(starter)}
-                    style={{ fontSize: "0.9rem" }}
+                    style={{ fontSize: "0.85rem" }}
                   >
                     {starter}
                   </button>
@@ -98,7 +98,7 @@ export default function Home() {
           )}
 
           {(messages.some((m) => m.role !== "system") || loading) && (
-            <div className="fixed-chat-wrapper">
+            <div className="fixed-chat-wrapper" style={{ flex: 1, overflowY: "auto", marginBottom: "4rem" }}>
               <div className="message-box" style={{ backgroundColor: "transparent", border: "none", padding: "0" }}>
                 {messages.map((m, i) =>
                   m.role !== "system" ? (
