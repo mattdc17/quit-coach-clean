@@ -30,16 +30,35 @@ export default function LoginGate({ children }) {
           <img src="/logo.png" alt="Logo" className="logo" />
         </div>
         <h1>Enter Access Code</h1>
-        <form onSubmit={handleSubmit} className="access-form">
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "300px",
+            margin: "0 auto"
+          }}
+        >
           <input
             type="text"
             value={code}
             onChange={(e) => setCode(e.target.value)}
             placeholder="Enter your code"
             className="access-input"
+            style={{ width: "100%" }}
           />
-          <button type="submit" className="access-button">Enter</button>
+          <button
+            type="submit"
+            className="access-button"
+            style={{ width: "100%", fontWeight: "bold", fontSize: "1.1rem" }}
+          >
+            Enter
+          </button>
         </form>
+
       </div>
     </div>
   );
