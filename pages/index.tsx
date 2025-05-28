@@ -85,7 +85,7 @@ export default function Home() {
 
           {!started && (
             <div>
-              <h2>Conversation Starters</h2>
+              <h2>What's On Your Mind?</h2>
               <div className="prompt-buttons">
                 {starters.map((starter, i) => (
                   <button
@@ -134,7 +134,7 @@ export default function Home() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Type your message..."
+              placeholder="Type anything..."
             />
             <button onClick={() => sendMessage()} disabled={loading}>
               {loading ? "..." : "Send"}
