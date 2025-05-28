@@ -78,25 +78,18 @@ export default function Home() {
           <div className="logo-container">
             <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" />
           </div>
-          {/*<h1>Quit Coach</h1>
-          <p>
-            For people quitting substances or healing afterward — quick, clear support to take back control of your life.
-          </p> */}
-
+          <h2>What's On Your Mind?</h2>
           {!started && (
-            <div>
-              <h2>What's On Your Mind?</h2>
-              <div className="prompt-buttons">
-                {starters.map((starter, i) => (
-                  <button
-                    key={i}
-                    className="prompt-button"
-                    onClick={() => sendMessage(starter)}
-                  >
-                    {starter}
-                  </button>
-                ))}
-              </div>
+            <div className="prompt-buttons">
+              {starters.map((starter, i) => (
+                <button
+                  key={i}
+                  className="prompt-button"
+                  onClick={() => sendMessage(starter)}
+                >
+                  {starter}
+                </button>
+              ))}
             </div>
           )}
 
