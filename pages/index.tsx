@@ -73,21 +73,22 @@ export default function Home() {
 
   return (
     <LoginGate>
-      <div className="outer-wrapper" style={{ padding: "1rem", paddingBottom: "5rem" }}>
-        <div className="chat-container" style={{ width: "100%", maxWidth: "720px", padding: "1.5rem 1rem" }}>
+      <div className="outer-wrapper" style={{ padding: "1rem", height: "100vh" }}>
+        <div className="chat-container" style={{ width: "100%", maxWidth: "100%", boxShadow: "none", padding: "1.5rem 1rem" }}>
           <div className="logo-container">
-            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: 60, height: 60, marginBottom: "1rem" }} />
+            <img src="/logo.png" alt="Quit Coach Logo" className="logo-access" style={{ width: "64px", height: "64px" }} />
           </div>
 
           {!started && (
             <>
-              <h2 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>What's On Your Mind?</h2>
+              <h2 style={{ fontSize: "1rem", fontWeight: "600", marginBottom: "1rem" }}>What's On Your Mind?</h2>
               <div className="prompt-buttons">
                 {starters.map((starter, i) => (
                   <button
                     key={i}
                     className="prompt-button"
                     onClick={() => sendMessage(starter)}
+                    style={{ fontSize: "0.9rem" }}
                   >
                     {starter}
                   </button>
@@ -98,16 +99,16 @@ export default function Home() {
 
           {(messages.some((m) => m.role !== "system") || loading) && (
             <div className="fixed-chat-wrapper">
-              <div className="message-box">
+              <div className="message-box" style={{ backgroundColor: "transparent", border: "none", padding: "0" }}>
                 {messages.map((m, i) =>
                   m.role !== "system" ? (
                     <div
                       key={i}
                       className={`message ${m.role === "user" ? "user" : "assistant"}`}
-                      style={{ borderRadius: 0, padding: "1rem", margin: 0, fontSize: "1rem" }}
+                      style={{ borderRadius: "16px", padding: "0.75rem 1rem", margin: "0.25rem 0", fontSize: "0.9rem" }}
                     >
                       {m.content.split("\n\n").map((para, j) => (
-                        <p key={j}>{para}</p>
+                        <p key={j} style={{ margin: 0 }}>{para}</p>
                       ))}
                     </div>
                   ) : null
@@ -123,24 +124,24 @@ export default function Home() {
               </div>
             </div>
           )}
-        </div>
 
-        <div className="input-area" style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "0.5rem", backgroundColor: "#fff", borderTop: "1px solid #ddd", zIndex: 10, display: "flex", gap: "0.5rem" }}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type anything..."
-            style={{ flex: 1, padding: "0.75rem", fontSize: "1rem", borderRadius: "12px", border: "1px solid #ccc" }}
-          />
-          <button
-            onClick={() => sendMessage()}
-            disabled={loading}
-            style={{ backgroundColor: "#0670DB", color: "white", border: "none", padding: "0.75rem 1.25rem", borderRadius: "12px", fontSize: "1rem", cursor: "pointer" }}
-          >
-            {loading ? "..." : "Send"}
-          </button>
+          <div className="input-area" style={{ position: "fixed", bottom: 0, left: 0, right: 0, backgroundColor: "#fff", padding: "0.75rem 1rem", display: "flex", flexDirection: "row", alignItems: "center", gap: "0.5rem" }}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type anything..."
+              style={{ flex: 1, padding: "0.75rem", fontSize: "1rem", borderRadius: "12px", border: "1px solid #ccc" }}
+            />
+            <button
+              onClick={() => sendMessage()}
+              disabled={loading}
+              style={{ backgroundColor: "#0670DB", color: "white", border: "none", padding: "0.75rem 1.25rem", borderRadius: "12px", fontSize: "1rem", cursor: "pointer" }}
+            >
+              {loading ? "..." : "Send"}
+            </button>
+          </div>
         </div>
       </div>
     </LoginGate>
